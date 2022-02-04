@@ -4,8 +4,10 @@ namespace App\Entity;
 
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\HasLifecycleCallbacks;
+use Doctrine\ORM\Mapping\PrePersist;
 
-#[ORM\Entity(repositoryClass: ArticleRepository::class)]
+#[ORM\Entity(repositoryClass: ArticleRepository::class), HasLifecycleCallbacks]
 class Article
 {
     #[ORM\Id]
@@ -23,7 +25,7 @@ class Article
     private $cover;
 
     #[ORM\Column(type: 'datetime')]
-    private $date_created;
+    private ?\DateTime $date_created;
 
     public function getId(): ?int
     {
@@ -66,15 +68,15 @@ class Article
         return $this;
     }
 
-    public function getDateCreated(): ?\DateTimeInterface
+    public function getDateCreated(): ?\DateTime
     {
         return $this->date_created;
     }
 
-    public function setDateCreated(\DateTimeInterface $date_created): self
+    #[PrePersist]
+    public function setDateCreated(): self
     {
-        $this->date_created = $date_created;
-
+        $this->date_created = new \DateTime();
         return $this;
     }
 }

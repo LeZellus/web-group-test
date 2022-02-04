@@ -4,6 +4,9 @@ namespace App\Controller\Admin;
 
 use App\Entity\Article;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class ArticleCrudController extends AbstractCrudController
 {
@@ -12,14 +15,13 @@ class ArticleCrudController extends AbstractCrudController
         return Article::class;
     }
 
-    /*
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
+            TextField::new('title', 'Titre'),
+            TextareaField::new('content', 'Contenu'),
+            TextField::new('cover', 'Cover'),
+            DateTimeField::new('date_created', 'Date Création')->hideOnForm()->setFormat('short'),
         ];
     }
-    */
 }
