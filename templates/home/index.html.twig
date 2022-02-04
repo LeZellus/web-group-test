@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil | {{ parent() }}{% endblock %}
+
+{% block head %}
+    {{ parent() }}
+    <meta property="og:type" content="siteweb"/>
+    <meta property="og:title" content="Space Blog | Site communautaire."/>
+    <meta property="og:description"
+          content="Space Blog est un blog autour de l'espace'. Retrouvez des articles en fonction de vos envies."/>
+    <meta property="og:image"
+          content="{{ app.request.schemeAndHttpHost ~ app.request.baseUrl }}{{ asset('images/website/logo.svg') }}"/>
+{% endblock %}
+
+{% block body %}
+    <h1>Page accueil</h1>
+{% endblock %}
