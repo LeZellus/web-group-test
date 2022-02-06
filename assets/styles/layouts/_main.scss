@@ -13,4 +13,71 @@ body {
 body {
   position: relative;
   font-size: 1.6rem;
+  background-color: $color-body-background;
+}
+
+.wrapper {
+  max-width: 128rem;
+  height: 100%;
+  margin: 0 2rem 0 2rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.w-half {
+  width: 50%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.m-auto {
+  margin: auto;
+}
+
+.rounded {
+  border-radius: 3rem;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.strong {
+  color: $color-strong;
+}
+
+.text-white {
+  color: $white;
+}
+
+.opacity-8 {
+  opacity: .8;
 }
