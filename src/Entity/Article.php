@@ -6,6 +6,7 @@ use App\Repository\ArticleRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\HasLifecycleCallbacks;
 use Doctrine\ORM\Mapping\PrePersist;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 #[ORM\Entity(repositoryClass: ArticleRepository::class), HasLifecycleCallbacks]
 class Article
@@ -26,6 +27,10 @@ class Article
 
     #[ORM\Column(type: 'datetime')]
     private ?\DateTime $date_created;
+
+    #[ORM\Column(type: 'string', length: 255)]
+    #[Gedmo\Slug(fields: ['title'])]
+    private $slug;
 
     public function getId(): ?int
     {
@@ -77,6 +82,18 @@ class Article
     public function setDateCreated(): self
     {
         $this->date_created = new \DateTime();
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
+
         return $this;
     }
 }

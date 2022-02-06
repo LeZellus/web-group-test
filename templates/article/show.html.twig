@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ article.title }} | {{ parent() }}{% endblock %}
+
+{% block head %}
+    {{ parent() }}
+    <meta property="og:url"
+          content="http://xipelgames.tech/article/{{ article.id }}"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="{{ article.title }}"/>
+{% endblock %}
+
+{% block body %}
+    <a href="{{ path("app_home") }}" class="button rounded">Retour</a>
+    <article class="rounded bg-white overflow-hidden article">
+        <img src="{{ asset('images/article.jpeg') }}" alt="Photo espace" class="w-full article-cover">
+
+        <div class="article-wrapper grid gap-30">
+            <h1 class="text-center">{{ article.title }}</h1>
+            <p class="article-content">{{ article.content | raw }}</p>
+
+            <span class="article-date">Publié le {{ article.dateCreated|format_datetime(pattern="dd MM YY", locale='fr') }} à {{ article.dateCreated|format_datetime('none', 'short', locale='fr') }}</span>
+        </div>
+
+    </article>
+{% endblock %}

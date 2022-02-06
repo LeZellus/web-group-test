@@ -1,0 +1,15 @@
+.button {
+  padding: 1.5rem 3rem;
+  background-color: $color-button-background;
+  color: $color-button-text;
+  border: 2px solid $color-button-border;
+  font-weight: 900;
+  display: inline-flex;
+  margin: 3rem 0;
+
+  &:hover {
+    background-color: transparent;
+    color: $color-button-text-hover;
+    transition: .3s ease-in;
+  }
+}

@@ -1,0 +1,31 @@
+.article {
+
+  margin-bottom: 9rem;
+
+  &-wrapper {
+    padding: 3rem;
+  }
+
+  h1 {
+    margin: 0;
+    color: $color-title-article;
+    font-size: 3.2rem;
+  }
+
+  &-cover {
+    height: 40rem;
+  }
+
+  &-date {
+    font-size: 1.6rem;
+    font-weight: 300;
+    font-style: italic;
+  }
+
+  &-content {
+    font-size: 1.6rem;
+    font-weight: 400;
+    margin: 0;
+    text-align: justify;
+  }
+}

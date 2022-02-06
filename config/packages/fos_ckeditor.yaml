@@ -1,0 +1,12 @@
+twig:
+    form_themes:
+        - '@FOSCKEditor/Form/ckeditor_widget.html.twig'
+fos_ck_editor:
+    base_path: 'bundles/fosckeditor'
+    js_path: 'bundles/fosckeditor/ckeditor.js'
+
+    input_sync: true
+    default_config: main_config
+    configs:
+        main_config:
+            toolbar: full

@@ -10,10 +10,15 @@ body {
   margin: 0;
   box-sizing: border-box;
 }
+
 body {
   position: relative;
   font-size: 1.6rem;
   background-color: $color-body-background;
+}
+
+a {
+  text-decoration: none;
 }
 
 .wrapper {
@@ -78,6 +83,30 @@ body {
   color: $white;
 }
 
+.text-center {
+  text-align: center;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.bg-white {
+  background-color: $white;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
 .opacity-8 {
   opacity: .8;
+}
+
+.grid {
+  display: grid;
+}
+
+.gap-30 {
+  grid-gap: 3rem;
 }
