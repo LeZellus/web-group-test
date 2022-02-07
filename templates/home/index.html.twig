@@ -25,7 +25,7 @@
         {% for article in articles %}
             <article class="article-card rounded overflow-hidden">
                 <a href="{{ path('article_show', {slug: article.slug }) }}" class="w-full h-full">
-                    <img src="{{ vich_uploader_asset(article, 'imageFile') }}" alt="" class="article-card-cover">
+                    <img src="{{ vich_uploader_asset(article, 'imageFile') }}" alt="Photo espace" class="w-full article-card-cover">
                     <h3 class="article-card-title">{{ article.title }}</h3>
                 </a>
             </article>
