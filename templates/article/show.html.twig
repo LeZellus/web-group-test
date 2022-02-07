@@ -13,7 +13,7 @@
 {% block body %}
     <a href="{{ path("app_home") }}" class="button rounded">Retour</a>
     <article class="rounded bg-white overflow-hidden article">
-        <img src="{{ asset('images/article.jpeg') }}" alt="Photo espace" class="w-full article-cover">
+        <img src="{{ vich_uploader_asset(article, 'imageFile') }}" alt="Photo espace" class="w-full article-cover">
 
         <div class="article-wrapper grid gap-30">
             <h1 class="text-center">{{ article.title }}</h1>

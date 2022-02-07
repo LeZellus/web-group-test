@@ -13,7 +13,22 @@
 {% endblock %}
 
 {% block body %}
-    <section style="background-image: url('{{ asset('images/hero.jpeg') }}')" class="w-full hero rounded background-cover background-center no-repeat relative flex items-center">
-        <h1 class="hero-text absolute w-half text-right text-white">DECOUVREZ <span class="strong">L'ESPACE</span><br> COMME JAMAIS<br> AUPARAVANT</h1>
+    <section style="background-image: url('{{ asset('images/hero.jpeg') }}')"
+             class="w-full hero rounded background-cover background-center no-repeat relative flex items-center">
+        <h1 class="hero-text absolute w-half text-right text-white">DECOUVREZ <span class="strong">L'ESPACE</span><br>
+            COMME JAMAIS<br> AUPARAVANT</h1>
     </section>
+
+    <h2>Nos articles</h2>
+
+    <div class="flex justify-between wrap">
+        {% for article in articles %}
+            <article class="article-card rounded overflow-hidden">
+                <a href="{{ path('article_show', {slug: article.slug }) }}" class="w-full h-full">
+                    <img src="{{ vich_uploader_asset(article, 'imageFile') }}" alt="" class="article-card-cover">
+                    <h3 class="article-card-title">{{ article.title }}</h3>
+                </a>
+            </article>
+        {% endfor %}
+    </div>
 {% endblock %}

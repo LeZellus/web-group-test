@@ -21,6 +21,12 @@ a {
   text-decoration: none;
 }
 
+h2 {
+  margin: 4rem 0;
+  color: $color-title-article;
+  font-size: 4.8rem;
+}
+
 .wrapper {
   max-width: 128rem;
   height: 100%;
@@ -37,6 +43,14 @@ a {
 
 .justify-center {
   justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.wrap {
+  flex-wrap: wrap;
 }
 
 .items-center {

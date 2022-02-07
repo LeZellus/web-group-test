@@ -6,9 +6,11 @@ use App\Entity\Article;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class ArticleCrudController extends AbstractCrudController
 {
@@ -29,7 +31,8 @@ class ArticleCrudController extends AbstractCrudController
         return [
             TextField::new('title', 'Titre'),
             TextareaField::new('content', 'Contenu')->setFormType(CKEditorType::class)->hideOnIndex(),
-            TextField::new('cover', 'Cover'),
+            ImageField::new('cover')->setBasePath('/uploads/covers')->onlyOnIndex(),
+            TextField::new('imageFile')->setFormType(VichImageType::class)->onlyWhenCreating(),
             DateTimeField::new('date_created', 'Date Création')->hideOnForm()->setFormat('short'),
         ];
     }

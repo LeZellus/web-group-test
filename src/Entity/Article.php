@@ -7,8 +7,11 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\HasLifecycleCallbacks;
 use Doctrine\ORM\Mapping\PrePersist;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: ArticleRepository::class), HasLifecycleCallbacks]
+#[Vich\Uploadable]
 class Article
 {
     #[ORM\Id]
@@ -31,6 +34,29 @@ class Article
     #[ORM\Column(type: 'string', length: 255)]
     #[Gedmo\Slug(fields: ['title'])]
     private $slug;
+
+    #[Vich\UploadableField(mapping: 'covers', fileNameProperty: 'cover')]
+    private ?File $imageFile = null;
+
+    public function setImageFile(File $cover = null)
+    {
+        $this->imageFile = $cover;
+    }
+
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    public function setCover($cover)
+    {
+        $this->cover = $cover;
+    }
+
+    public function getCover()
+    {
+        return $this->cover;
+    }
 
     public function getId(): ?int
     {
@@ -61,18 +87,6 @@ class Article
         return $this;
     }
 
-    public function getCover(): ?string
-    {
-        return $this->cover;
-    }
-
-    public function setCover(string $cover): self
-    {
-        $this->cover = $cover;
-
-        return $this;
-    }
-
     public function getDateCreated(): ?\DateTime
     {
         return $this->date_created;
@@ -95,5 +109,10 @@ class Article
         $this->slug = $slug;
 
         return $this;
+    }
+
+    public function __toString(): string
+    {
+        return $this->cover;
     }
 }

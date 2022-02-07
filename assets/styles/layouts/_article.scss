@@ -28,4 +28,28 @@
     margin: 0;
     text-align: justify;
   }
+
+  &-card {
+    max-width: calc(33% - 2rem);
+    background-color: $white;
+    box-shadow: none;
+    margin-bottom: 4rem;
+
+    &:hover {
+      transition: .3s ease;
+      cursor: pointer;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    }
+
+    &-cover {
+      height: 25rem;
+    }
+
+    &-title {
+      color: $color-title-article;
+      font-size: 3.2rem;
+      padding: 3rem;
+      margin: 0;
+    }
+  }
 }
